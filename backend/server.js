@@ -3,8 +3,9 @@ const app = express();
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
+const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/myapp', {useNewUrlParser : true,
+mongoose.connect('mongodb://127.0.0.1:27017/fileshare', {useNewUrlParser : true,
     useUnifiedTopology: true})
 .then(() => console.log('Database connected'))
 .catch((err) => {
@@ -17,13 +18,13 @@ app.use(express.urlencoded({
     extended : false
 }));
 
-app.use(cors,({
-    exposedHeaders : '*'
-}))
+// app.use(cors,({
+//     exposedHeaders : '*'
+// }))
 
 app.use(morgan('dev'));
 
-//Maximum request body size
+// Maximum request body size
 app.use(bodyParser.json({
     limit : '50mb'
 }))
