@@ -6,6 +6,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const multer = require('multer');
 const path = require('path');
+const AppRouter = require('./routes');
 
 //File Storage Config 
 const storageDir = path.join(__dirname,'backend','..','storage');
@@ -29,7 +30,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/fileshare', {useNewUrlParser : true,
 .catch((err) => {
     console.log(err);
 })
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 //for url encoding
 app.use(express.urlencoded({
@@ -49,9 +50,42 @@ app.use(bodyParser.json({
 
 //Setting variables to be used in other files
 app.set('storageDir',storageDir);
-app.set('upload','upload');
+app.set('upload',upload);
 
 //Routes
-app.use('/',require('./routes'));
+// app.use('/',AppRouter);
 
+    //Uploading Routing
+    const uploads = app.get('upload');
+    app.post('/api/uploads',uploads.single('files'),(req,res,next) => {
+            console.log('Files uploaded',req.file);
+            const file = req.file;
+            res.json({
+                file : file
+            })
+    })
+
+    //Downloading Routing
+    const uploadDir = app.get('storageDir');
+
+    app.get('/api/download/:name', (req,res) => {
+        const fileName  = req.params.name;
+        const filePath = path.join(uploadDir,fileName);
+
+        return res.download(filePath,fileName, (err) => {
+            if(err) {
+                return res.status(404).json({
+                    "error" : "File not found"
+                })
+            }
+            else {
+                console.log("File is downloading");
+                res.status(200).json({
+                    "success" : "File downloaded"
+                })
+            }
+        })
+
+    })
 app.listen(PORT, console.log(`Server started on ${PORT}`));
+

@@ -1,10 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/hello',(req,res) => {
-    res.status(200).json({
-        name : "hello"
-    })
-    console.log("hello");
-})
-module.exports = router;
+    AppRouter = (app) =>  {
+        
+        const uploads = app.get('upload');
+        router.post('/api/uploads',uploads.single('files'),(req,res,next) => {
+            console.log('File uploaded',req.file);
+        })
+    }
+
+
+
+module.exports = AppRouter
