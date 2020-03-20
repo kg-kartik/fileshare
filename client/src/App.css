@@ -1,38 +1,72 @@
-.App {
-  text-align: center;
+.main_heading {
+  font-family: "Libre Baskerville", serif;
+  position : relative;
+  top: 28%;
+  font-size: 7vh;
+  color : #F36F21;
+  width: 80%;
+  text-align: left;
+  margin: 0 auto;
+  line-height: 10vh;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.landing_container_right {
+  height: 100vh;
+  background:#273b89;
+  flex-wrap: wrap !important;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.landing_container_left {
+  height: 100vh;
+  flex-wrap : wrap !important;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+img {
+  width : 40vw;
+  height : 40vh;
+  margin-top : 33%;
+  margin-left : 10%;
+}
+.uploadForm {
+  height : 100vh;
+  margin : 10% 10%;
+}
+.input_file_div {
+  margin-top : 10%;
+  background-color: #fce7d2 !important;
+  height: 15vh;
+  width : 40vw;
+}
+.input-file {
+  position : fixed;
+  top : -9999px;
+}
+.fa {
+  font-size: 3vw !important;
+  padding-top : 1px;
+  padding-left : 20vw;
+}
+.input_common {
+  font-family: "Nunito", serif !important;
+  font-size: 19px !important;
+  border-radius: 1px !important;
+  color : #F36F21;
+  width : 40vw !important;
+}
+.form-text {
+  margin-bottom : 2vh;
+}
+.main_form {
+  height: 40vh;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: 10%;
 }
-
-.App-link {
-  color: #61dafb;
+.input_common:focus {
+  text-decoration: none !important;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.textarea_common {
+  width : 40vw !important;
+}
+.send_button {
+  background-color:#F36F21 !important;
+  border: 0px !important;
+  font-family: "Nunito", serif !important;
+  width : 40vw !important;
 }

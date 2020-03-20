@@ -16,6 +16,8 @@ class UploadForm extends Component {
     render() {
         return (
         <div class="uploadForm">
+            <div className="input_file_div">
+              <label htmlFor={"input-file"}></label>
              <input
                   type="file"
                   multiple={true}
@@ -23,13 +25,13 @@ class UploadForm extends Component {
                   className="input-file"
                   onChange={this.onChangeFile}
                 />
-                <i className="fa fa-upload" aria-hidden="true" />
+                <i className="fa fa-upload" aria-hidden="true" /> <br></br>
                 {this.state.files.length == 0 && (
-                  <span className="man_form_top_file_upload">
+                  <span className="upload_files_here">
                     Upload Files Here
                   </span>
                 )}
-        
+            </div>
             <div class="main_form">
                 <InputGroup
                     placeholder="Send To"
