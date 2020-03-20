@@ -4,18 +4,34 @@ import TextAreaGroup from "./reusable/TextArea"
 
 class UploadForm extends Component {
     state = {
-        sendTo : "",
-        from  : "",
-        mesage : "",
+        form : {
+            sendTo : "",
+            from  : "",
+            message : "",
+        },
         files : "",
-        fromError : null,
-        sendToError : null,
-        fileError : null
+    }
+    
+    onChange = (e) => {
+        const {form} = this.state;
+        const fieldName = e.target.name;
+        const fieldValue = e.target.value;
+        
+        form[fieldName] = fieldValue; //Array Destructuring
+        this.setState({
+            form : form
+        })
     }
 
+    onSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state.form);
+    }
+     
     render() {
         return (
         <div class="uploadForm">
+          <form className="landing_form" onSubmit={this.onSubmit}> 
             <div className="input_file_div">
               <label htmlFor={"input-file"}></label>
              <input
@@ -26,7 +42,7 @@ class UploadForm extends Component {
                   onChange={this.onChangeFile}
                 />
                 <i className="fa fa-upload" aria-hidden="true" /> <br></br>
-                {this.state.files.length == 0 && (
+                {this.state.files.length === 0 && (
                   <span className="upload_files_here">
                     Upload Files Here
                   </span>
@@ -36,6 +52,7 @@ class UploadForm extends Component {
                 <InputGroup
                     placeholder="Send To"
                     name="sendTo"
+                    type="email"
                     value={this.state.sendTo}
                     onChange={this.onChange}
                     label="Receiver's Email"
@@ -44,20 +61,22 @@ class UploadForm extends Component {
                 <InputGroup
                     placeholder="From"
                     name="from"
+                    type="email"
                     value={this.state.from}
                     onChange={this.onChange}
                     label="Sender's Email"
                     error={this.state.fromError}
                 />
                 <TextAreaGroup
-                placeholder="What's your message?"
-                name="message"
-                value={this.state.message}
-                onChange={this.onChange}
-                info="Message"
+                    placeholder="Type your message"
+                    name="message"
+                    value={this.state.message}
+                    onChange={this.onChange}
+                    info="Message"
                 />
-                <button type="button" class=" send_button btn btn-primary btn-lg btn-block"> Send Files</button>
+                <button type="submit" class=" send_button btn btn-primary btn-lg btn-block"> Send Files</button>
             </div>
+            </form>   
         </div>
         )
     }

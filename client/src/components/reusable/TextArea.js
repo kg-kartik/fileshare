@@ -11,6 +11,7 @@ const TextAreaGroup = ({ name, placeholder, value, info, onChange }) => {
         name={name}
         value={value}
         onChange={onChange}
+        required
       />
     </div>
   );

@@ -1,3 +1,10 @@
+/* Right side container */
+
+.landing_container_right {
+  height: 100vh !important;
+  background:#273b89;
+  flex-wrap: wrap !important;
+}
 .main_heading {
   font-family: "Libre Baskerville", serif;
   position : relative;
@@ -9,28 +16,30 @@
   margin: 0 auto;
   line-height: 10vh;
 }
-.landing_container_right {
-  height: 100vh;
-  background:#273b89;
-  flex-wrap: wrap !important;
-}
-.landing_container_left {
-  height: 100vh;
-  flex-wrap : wrap !important;
-}
 img {
   width : 40vw;
   height : 40vh;
   margin-top : 33%;
   margin-left : 10%;
 }
+
+/* Left Side Container */
+
+.landing_container_left {
+  height: 100vh !important;
+  flex-wrap : wrap !important; 
+  /* background-color : #f2ceb1; */
+  background-color : #f5efe1;
+} 
+ /* Form starts  */
+
 .uploadForm {
   height : 100vh;
   margin : 10% 10%;
 }
 .input_file_div {
   margin-top : 10%;
-  background-color: #fce7d2 !important;
+  background-color: #fff5eb !important;
   height: 15vh;
   width : 40vw;
 }
@@ -40,15 +49,26 @@ img {
 }
 .fa {
   font-size: 3vw !important;
-  padding-top : 1px;
+  padding-top : 5px;
   padding-left : 20vw;
+  color :#273b89;
+}
+.upload_files_here {
+  font-family: "Nunito", serif;
+  font-size : 20px;
+  padding-left : 15vw;
+  color : #273b89;
 }
 .input_common {
-  font-family: "Nunito", serif !important;
+  /* font-family: "Nunito", serif !important; */
   font-size: 19px !important;
   border-radius: 1px !important;
-  color : #F36F21;
+  background-color: #fff5eb !important;
   width : 40vw !important;
+  color: #707980 !important;
+}
+.text-muted {
+  color : #273b89 !important;
 }
 .form-text {
   margin-bottom : 2vh;
@@ -63,6 +83,8 @@ img {
 }
 .textarea_common {
   width : 40vw !important;
+  background-color:#fff5eb !important;
+  color: #707980 !important;
 }
 .send_button {
   background-color:#F36F21 !important;

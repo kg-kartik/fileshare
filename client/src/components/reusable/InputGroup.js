@@ -21,6 +21,7 @@ const InputGroup = ({
         onChange={onChange}
         type={type}
         id={error ? "error-css" : ""}
+        required
       />
       {error && <small className="form-error-text text-left">{error}</small>}
     </div>
@@ -35,7 +36,6 @@ InputGroup.propTypes = {
   error: PropTypes.string,
   label: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  // option: PropTypes.array.isRequired,
   type: PropTypes.string.isRequired,
   error: PropTypes.string
 };
