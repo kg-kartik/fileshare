@@ -8,8 +8,10 @@ class UploadForm extends Component {
             sendTo : "",
             from  : "",
             message : "",
+            files : []
         },
-        files : "",
+        errors : {
+        }
     }
     
     onChange = (e) => {
@@ -27,33 +29,82 @@ class UploadForm extends Component {
         e.preventDefault();
         console.log(this.state.form);
     }
+
+    onChangeFile = (e) => {
+        const file = this.state.form.files;
+        const files = e.target.files;
+
+        Object.keys(files).forEach(key => {
+            file.push(files[key]);
+        })
+        
+        this.setState({
+            form : {
+                ...this.state.form,
+                files : file
+            }
+        })
+        console.log(this.state)
+    } 
      
+    onDeleteItem = (key) => {
+        const files = this.state.form.files;
+        files.splice(key,1);
+        this.setState({
+            ...this.state,
+            files
+        })
+    }
     render() {
-        return (
-        <div class="uploadForm">
-          <form className="landing_form" onSubmit={this.onSubmit}> 
-            <div className="input_file_div">
-              <label htmlFor={"input-file"}></label>
-             <input
-                  type="file"
-                  multiple={true}
-                  id={"input-file"}
-                  className="input-file"
-                  onChange={this.onChangeFile}
-                />
-                <i className="fa fa-upload" aria-hidden="true" /> <br></br>
-                {this.state.files.length === 0 && (
-                  <span className="upload_files_here">
-                    Upload Files Here
-                  </span>
-                )}
+        const items = Object.keys(this.state.form.files).map((key, index) => (
+          <div className="file_content" key={key}>
+            <div className="file_name">
+              {this.state.form.files[key].name}
             </div>
-            <div class="main_form">
+            <button
+                className="delete_button"
+                onClick={() => this.onDeleteItem(key)}
+              > X
+            </button>
+            </div>
+        ));
+
+        return (
+        <div className="uploadForm container">
+          <form className="landing_form" onSubmit={this.onSubmit}>
+            <div class="main_form_top">
+                <div className="selected_files">{items}</div>
+                
+                <div className="input_file_div">
+                    <label htmlFor={"input-file"}>
+                    <input
+                        type="file"
+                        multiple={true}
+                        id="input-file"
+                        className="input-file"
+                        onChange={this.onChangeFile}
+                    />
+                    <i className="fa fa-upload text-center" aria-hidden="true"> <br></br>
+                    {this.state.form.files.length === 0 && (
+                        <span className="upload_files_here text-center">
+                        Upload Files Here
+                        </span>
+                    )}
+                    {this.state.form.files.length > 0 && (
+                    <span className="add_files">
+                        Add More Files
+                    </span>
+                )}
+                    </i>
+                    </label>
+                </div>
+                </div>
+                <div className="main_form">
                 <InputGroup
                     placeholder="Send To"
                     name="sendTo"
                     type="email"
-                    value={this.state.sendTo}
+                    value={this.state.form.sendTo}
                     onChange={this.onChange}
                     label="Receiver's Email"
                     error={this.state.sendToError}
@@ -62,7 +113,7 @@ class UploadForm extends Component {
                     placeholder="From"
                     name="from"
                     type="email"
-                    value={this.state.from}
+                    value={this.state.form.from}
                     onChange={this.onChange}
                     label="Sender's Email"
                     error={this.state.fromError}
@@ -70,11 +121,11 @@ class UploadForm extends Component {
                 <TextAreaGroup
                     placeholder="Type your message"
                     name="message"
-                    value={this.state.message}
+                    value={this.state.form.message}
                     onChange={this.onChange}
                     info="Message"
                 />
-                <button type="submit" class=" send_button btn btn-primary btn-lg btn-block"> Send Files</button>
+                <button type="submit" className=" send_button btn btn-primary btn-lg btn-block"> Send Files</button>
             </div>
             </form>   
         </div>
