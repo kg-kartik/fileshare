@@ -1,9 +1,19 @@
+body, html {
+  max-height : 100%;
+  width : 100vw;
+  overflow-x : hidden;
+  padding : 0px;
+  margin: 0px;
+}
+
+
 /* Right side container */
 
 .landing_container_right {
-  height: 100vh !important;
   background:#273b89;
+  background-size : stretch;
   flex-wrap: wrap !important;
+  overflow-y: hidden;
 }
 .main_heading {
   font-family: "Libre Baskerville", serif;
@@ -26,55 +36,102 @@ img {
 /* Left Side Container */
 
 .landing_container_left {
-  height: 100vh !important;
   flex-wrap : wrap !important; 
-  /* background-color : #f2ceb1; */
-  background-color : #f5efe1;
+  background-color : #f0d0b1;
 } 
- /* Form starts  */
 
-.uploadForm {
-  height : 100vh;
-  margin : 10% 10%;
+
+.landing_form {
+  max-width: 50vw !important;
+}  
+
+/* File container starts */
+.selected_files{
+  overflow-y: auto;
+  max-height : 20vh;
+  position: relative !important;
+  width: 40vw !important;
+  margin-top : 3vh !important;
+  margin-bottom : 0 !important;
 }
+.file_content {
+  line-height: 5vh;
+  border: 1px solid #273b89;
+  margin-bottom: 2vh;
+}
+.file_name {
+  display: inline-block;
+  text-align: left;
+  color : black;
+  padding: 0.5vh 2vw;
+  line-break: strict !important;
+  word-wrap: break-word !important;
+}
+.delete_button {
+  border : 0 none;
+  right : 0px;
+  font-size : 20px;
+  font-weight: bold;
+  background: none;
+  position: absolute;
+}
+
+/* File upload container */
 .input_file_div {
-  margin-top : 10%;
-  background-color: #fff5eb !important;
   height: 15vh;
-  width : 40vw;
 }
 .input-file {
   position : fixed;
   top : -9999px;
 }
 .fa {
-  font-size: 3vw !important;
-  padding-top : 5px;
-  padding-left : 20vw;
+  font-size: 40px !important;
+  top : 10vh;
+  left : 15vw;
+  position : relative;
   color :#273b89;
+  display: inline-block;
 }
 .upload_files_here {
   font-family: "Nunito", serif;
   font-size : 20px;
-  padding-left : 15vw;
+  top : 2vh !important;
+  left : 4vw !important;
+  width : 15vw;
+  position : absolute;
   color : #273b89;
 }
+.add_files{
+  font-family: "Nunito", serif;
+  font-size : 20px !important;
+  top : 2vh !important;
+  left : 4vw !important;
+  width : 10vw;
+  position : absolute!important; 
+  color : #273b89;
+}
+.uploadForm {
+  height : 100vh;
+  width : 50vw;
+}
 .input_common {
-  /* font-family: "Nunito", serif !important; */
-  font-size: 19px !important;
+  font-size: 15px !important;
+  height : 7vh !important;
   border-radius: 1px !important;
-  background-color: #fff5eb !important;
+  /* background-color: #fff5eb !important; */
   width : 40vw !important;
+  margin-left : 1% !important;
   color: #707980 !important;
 }
 .text-muted {
   color : #273b89 !important;
+  margin-bottom: 1px !important;
 }
 .form-text {
   margin-bottom : 2vh;
 }
 .main_form {
-  height: 40vh;
+  height: auto;
   flex-direction: column;
   margin-top: 10%;
 }
@@ -83,12 +140,39 @@ img {
 }
 .textarea_common {
   width : 40vw !important;
-  background-color:#fff5eb !important;
   color: #707980 !important;
+  margin-left : 1% !important;
+  height : 15vh !important;
 }
 .send_button {
   background-color:#F36F21 !important;
   border: 0px !important;
+  margin-top : 1%;
+  margin-bottom: 1%;
   font-family: "Nunito", serif !important;
   width : 40vw !important;
+}
+@media only screen and (max-width: 768px) {
+  .input_common {
+    width : 80vw !important;
+  }
+  .input_file_div {
+    width : 80vw !important;
+  }
+  .textarea_common {
+    width : 80vw !important;
+  }
+  .send_button {  
+    width : 80vw !important;
+  }
+  .fa {
+    padding-left : 40vw;
+  }
+  .upload_files_here {
+    padding-left : 32vw;
+  }
+  .selected_files {
+    width : 80vw !important;
+  }
+
 }
