@@ -10,7 +10,7 @@ body, html {
 /* Right side container */
 
 .landing_container_right {
-  background:#273b89;
+  background : #384b4f;
   background-size : stretch;
   flex-wrap: wrap !important;
   overflow-y: hidden;
@@ -20,7 +20,7 @@ body, html {
   position : relative;
   top: 28%;
   font-size: 7vh;
-  color : #F36F21;
+  color : #d4d0ab;
   width: 80%;
   text-align: left;
   margin: 0 auto;
@@ -37,7 +37,9 @@ img {
 
 .landing_container_left {
   flex-wrap : wrap !important; 
-  background-color : #f0d0b1;
+  /* background-color : #d6e8b0; */
+  background-color : #d4d0ab;
+
 } 
 
 
@@ -89,7 +91,7 @@ img {
   top : 10vh;
   left : 15vw;
   position : relative;
-  color :#273b89;
+  color :#31543d;
   display: inline-block;
 }
 .upload_files_here {
@@ -99,7 +101,7 @@ img {
   left : 4vw !important;
   width : 15vw;
   position : absolute;
-  color : #273b89;
+  color : #31543d;
 }
 .add_files{
   font-family: "Nunito", serif;
@@ -108,7 +110,7 @@ img {
   left : 4vw !important;
   width : 10vw;
   position : absolute!important; 
-  color : #273b89;
+  color : #31543d;
 }
 .uploadForm {
   height : 100vh;
@@ -124,7 +126,7 @@ img {
   color: #707980 !important;
 }
 .text-muted {
-  color : #273b89 !important;
+  color : blue !important;
   margin-bottom: 1px !important;
 }
 .form-text {
@@ -145,7 +147,8 @@ img {
   height : 15vh !important;
 }
 .send_button {
-  background-color:#F36F21 !important;
+  /* background-color:#31543d !important; */
+  background-color :#384b4f !important;
   border: 0px !important;
   margin-top : 1%;
   margin-bottom: 1%;
