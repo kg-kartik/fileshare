@@ -43,7 +43,7 @@ app.use(express.urlencoded({
 // }))
 
 app.use(morgan('dev'));
-
+app.use(cors());
 // Maximum request body size
 app.use(bodyParser.json({
     limit : '50mb'
