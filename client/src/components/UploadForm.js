@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import InputGroup from "./reusable/InputGroup"
 import TextAreaGroup from "./reusable/TextArea"
+const {upload} = require("../helpers/upload")
 
 class UploadForm extends Component {
     state = {
@@ -28,6 +29,13 @@ class UploadForm extends Component {
     onSubmit = (e) => {
         e.preventDefault();
         console.log(this.state.form);
+        // if(this.state.form.files.length > 0)
+        // {
+
+        // }
+        upload(this.state.form,(event) => {
+            console.log("Upload callback event",event);
+        })
     }
 
     onChangeFile = (e) => {
