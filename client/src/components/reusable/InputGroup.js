@@ -12,7 +12,7 @@ const InputGroup = ({
 }) => {
   return (
     <div className="form-group">
-      <small className="form-text text-left small text-muted">{label}</small>
+      <p className="form-text text-left small text-muted">{label}</p>
       <input
         className="form-control form-control-lg input_common"
         placeholder={placeholder}
@@ -20,7 +20,6 @@ const InputGroup = ({
         value={value}
         onChange={onChange}
         type={type}
-        id={error ? "error-css" : ""}
         required
       />
       {error && <small className="form-error-text text-left">{error}</small>}
