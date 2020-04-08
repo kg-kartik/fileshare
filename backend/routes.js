@@ -1,5 +1,6 @@
 const fileModel = require("./models/file");
 const path = require('path');
+const postModel = require("./models/post");
 class AppRouter {
 
     constructor(app) {
@@ -36,6 +37,24 @@ class AppRouter {
                     }
                 })
             }
+
+            //Saving post form data to the database
+            var post = new postModel({
+                sendTo : req.body.sendTo,
+                from : req.body.from,
+                message : req.body.message,
+                files  : newFiles
+            })
+
+            post.save((err,post) => {
+                if(err) {
+                    console.log(err);
+                }
+                else {
+                    console.log(post.sendTo);
+                }
+            })
+
         })
 
         
